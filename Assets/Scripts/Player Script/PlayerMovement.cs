@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
         /*Récupère la position de la souris, la transforme en coordonées et la stock dans une variable*/
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        /*Limite du terrain, empeche le joueur de dépasse les coordonées spécifiées*/
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -11.77f, 10.02f), Mathf.Clamp(transform.position.y,-13.12f,8.97f));
     }
 
     void FixedUpdate()//Exécute les inputs
