@@ -22,6 +22,6 @@ public class Follow : MonoBehaviour
 
         /*Limite du terrain, permet de décentrer la camera du joueur quand il arrive au bord du terrain
          evitant que la camera filme du vide qui ne fait pas partie de l'espace de jeu*/
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6.58f, 5.08f), Mathf.Clamp(transform.position.y, -8.6f, 4.47f), -10);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -4.41f, 4.45f), Mathf.Clamp(transform.position.y, -4.98f, 5.06f), -10);
     }
 }

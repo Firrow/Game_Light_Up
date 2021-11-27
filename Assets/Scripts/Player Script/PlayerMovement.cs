@@ -6,15 +6,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;//Vitesse du joueur
 
-    public Rigidbody2D rb;//Référence au corps du joueur
-    public Camera cam;//Référence à la caméra de la scene de jeu
+    private Rigidbody2D rb;//Crée uen variable pour stocker le corps du joueur
+    private Camera cam;//Crée une variable pour stocker la camera
 
     Vector2 movement;//Vecteur contenant le mouvement du joueur
     Vector2 mousePosition;//Vecteur contenant la position de la souris
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();//Récupère le rigidBody du joueur et le stock dans la variable créée préalablement
+        cam = Camera.main;//Récupère la camera et la stock dans la variable créée préalablement
+    }
+
     // Update is called once per frame
     void Update()//Récupère les inputs 
     {
+        /*Récupère les Inputs de mouvement*/
         movement.x = Input.GetAxisRaw("Horizontal");//Récupère l'input sur l'axe X et le stock dans une variable
         movement.y = Input.GetAxisRaw("Vertical");//Récupère l'input sur l'axe Y et le stock dans une variable
 
@@ -22,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
 
         /*Limite du terrain, empeche le joueur de dépasse les coordonées spécifiées*/
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -11.77f, 10.02f), Mathf.Clamp(transform.position.y,-13.12f,8.97f));
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -9f, 9f), Mathf.Clamp(transform.position.y, -9f, 9f));
     }
 
     void FixedUpdate()//Exécute les inputs

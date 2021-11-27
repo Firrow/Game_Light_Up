@@ -14,8 +14,8 @@ public class Bullet : MonoBehaviour
         {
             /*Joue un effet quand la balle touche quelque chose, puis détruit l'effet et la balle*/
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);//5f = temps avant destruction
-            Destroy(gameObject);
+            Destroy(effect, 1f);//1f = temps avant destruction de l'effet
+            Destroy(gameObject);//détruit la balle
         }
         
     } 
