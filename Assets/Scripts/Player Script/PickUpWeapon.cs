@@ -18,22 +18,27 @@ public class PickUpWeapon : MonoBehaviour
         pour changer les caractéristique de l'arme équipée du joueur puis détruit l'arme (l'instance de pickUp)*/
         if (collision.gameObject.tag == "BasicW" )
         {
-            shoot.changeWeapon(8f, 0.4f, 0, 15);
+            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
+            shoot.changeWeapon(8f, 0.4f, 0, 15, weapSprite);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Assaut")
         {
-            shoot.changeWeapon(15f, 0.4f, 1, 30);
+            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
+            shoot.changeWeapon(15f, 0.4f, 1, 30, weapSprite);
             Destroy(collision.gameObject);
+            Debug.Log(weapSprite);
         }
         else if (collision.gameObject.tag == "Shotgun")
         {
-            shoot.changeWeapon(13f, 0.6f, 2, 24);
+            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
+            shoot.changeWeapon(13f, 0.6f, 2, 24, weapSprite);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "MachineGun")
         {
-            shoot.changeWeapon(20f, 0.1f, 3, 150);
+            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
+            shoot.changeWeapon(20f, 0.1f, 3, 150, weapSprite);
             Destroy(collision.gameObject);
         }
 

@@ -113,11 +113,12 @@ public class Shooting : MonoBehaviour
         amunitions -= 1;
     }
 
-    public void changeWeapon(float bSpd, float fRate, int weapon, int amun)
+    public void changeWeapon(float bSpd, float fRate, int weapon, int amun, Sprite weaponSprite)
     {
         bulletSpeed = bSpd;
         fireRate = fRate;
         weaponEquipped = weapon;
         amunitions = amun;
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = weaponSprite;
     }
 }
