@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Shooting))]//Ajoute automatiquement le script Shooting quand on ajoute ce script
 public class PickUpWeapon : MonoBehaviour
 {
     private Shooting shoot;//Crée la référence au script Shooting du joueur
@@ -18,27 +19,26 @@ public class PickUpWeapon : MonoBehaviour
         pour changer les caractéristique de l'arme équipée du joueur puis détruit l'arme (l'instance de pickUp)*/
         if (collision.gameObject.tag == "BasicW" )
         {
-            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
-            shoot.changeWeapon(8f, 0.4f, 0, 15, weapSprite);
+            SpriteRenderer weapSpriteRend = collision.transform.GetComponent<SpriteRenderer>();
+            shoot.changeWeapon(8f, 0.4f, 0, 15, weapSpriteRend.sprite, weapSpriteRend.color);//Changement de couleur TEMPORAIRE pour TEST
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Assaut")
         {
-            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
-            shoot.changeWeapon(15f, 0.4f, 1, 30, weapSprite);
+            SpriteRenderer weapSpriteRend = collision.transform.GetComponent<SpriteRenderer>();
+            shoot.changeWeapon(15f, 0.4f, 1, 30, weapSpriteRend.sprite, weapSpriteRend.color);//Changement de couleur TEMPORAIRE pour TEST
             Destroy(collision.gameObject);
-            Debug.Log(weapSprite);
         }
         else if (collision.gameObject.tag == "Shotgun")
         {
-            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
-            shoot.changeWeapon(13f, 0.6f, 2, 24, weapSprite);
+            SpriteRenderer weapSpriteRend = collision.transform.GetComponent<SpriteRenderer>();
+            shoot.changeWeapon(13f, 0.6f, 2, 24, weapSpriteRend.sprite, weapSpriteRend.color);//Changement de couleur TEMPORAIRE pour TEST
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "MachineGun")
         {
-            Sprite weapSprite = collision.transform.GetComponent<Sprite>();
-            shoot.changeWeapon(20f, 0.1f, 3, 150, weapSprite);
+            SpriteRenderer weapSpriteRend = collision.transform.GetComponent<SpriteRenderer>();
+            shoot.changeWeapon(20f, 0.1f, 3, 150, weapSpriteRend.sprite, weapSpriteRend.color);//Changement de couleur TEMPORAIRE pour TEST
             Destroy(collision.gameObject);
         }
 
