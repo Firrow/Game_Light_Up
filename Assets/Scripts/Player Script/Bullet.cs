@@ -7,6 +7,11 @@ public class Bullet : MonoBehaviour
     /*A implémenter*/
     public GameObject hitEffect;//Référence à l'effet à jouer quand la balle touche quelque chose
 
+    private void Start()
+    {
+        Destroy(gameObject, 3f);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)//Se déclenche quand la balle touche quelque chose
     {
         /*Si la balle entre en collision avec un obstacle, un ennemi ou un allié effectue l'action*/

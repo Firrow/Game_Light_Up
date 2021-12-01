@@ -76,14 +76,17 @@ public class Shooting : MonoBehaviour
 
     void ShootWP1()//Fonction de tir de l'arme de base
     {
+        //tire une balle
         Shoot(bullet, firePoint.transform, new Vector3(0,0,0));
-        amunitions -= 1;
+        amunitions -= 1;//décremente les munitions de l'arme
     }
     void ShootWP2()//Fonction de tir du fusil d'assaut
     {
+        /*Tire une rafale de trois balles avec un délai de 0.1 entre chaque balles
+         Les deux dernières balles sont légerement désaxées*/
         IEnumerator TimeDelay()
         {
-            yield return new WaitForSeconds(0.1f);
+            //yield return new WaitForSeconds(0.1f);
             Shoot(bullet, firePoint.transform,new Vector3(0, 0, 0));
 
             yield return new WaitForSeconds(0.1f);
@@ -94,26 +97,29 @@ public class Shooting : MonoBehaviour
         }
 
         StartCoroutine(TimeDelay());
-        amunitions -= 3;
+        amunitions -= 3;//décrémente les munitions de l'arme
     }
 
     void ShootWP3()//Fonction de tir du fusil à pompe
     {
+        //Tire quatre balle simultanément
         Shoot(bullet, firePoint.transform, new Vector3(0, 0, 0));
         Shoot(bullet, firePoint.transform, new Vector3(0, 0, 0));
         Shoot(bullet, firePoint.transform, new Vector3(0, 0, 0));
         Shoot(bullet, firePoint.transform, new Vector3(0, 0, 0));
 
-        amunitions -= 4;
+        amunitions -= 4;//décrémente les munitions de l'arme
     }
 
     void ShootWP4()//Fonction de tir de la mitrailleuse
     {
+        //Tire une balle avec un spread random (entre -.2f et .2f)
         Shoot(bullet, firePoint.transform, new Vector3(Random.Range(-.2f, .2f), 0, 0));
-        amunitions -= 1;
+        amunitions -= 1;//décrémente les munitions de l'arme
     }
 
-    public void changeWeapon(float bSpd, float fRate, int weapon, int amun, Sprite weaponSprite, Color weaponColor)//Changement de couleur TEMPORAIRE pour TEST
+    //Changement de couleur TEMPORAIRE pour TEST
+    public void changeWeapon(float bSpd, float fRate, int weapon, int amun, Sprite weaponSprite, Color weaponColor)
     {
         bulletSpeed = bSpd;
         fireRate = fRate;
