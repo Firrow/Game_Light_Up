@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public float moveSpeed;//Vitesse du joueur
 
     private Rigidbody2D rb;//Crée uen variable pour stocker le corps du joueur

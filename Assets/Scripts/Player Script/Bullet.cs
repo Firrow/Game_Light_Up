@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 1f);//1f = temps avant destruction de l'effet
             Destroy(gameObject);//détruit la balle
+
+            //A enlever potentielle pour mettre le destroy dans l'objet, sinon remplir le on destroy de l'objet
+            if (collision.gameObject.tag != "Obstacle") Destroy(collision.gameObject);
         }
         
     } 
