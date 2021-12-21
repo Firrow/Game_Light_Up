@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)//Se déclenche quand la balle touche quelque chose
     {
         /*Si la balle entre en collision avec un obstacle, un ennemi ou un allié effectue l'action*/
-        if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Enemy" ||collision.gameObject.tag == "Ally")
+        if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Enemy" ||collision.gameObject.tag == "Ally"|| collision.gameObject.tag == "Ally2")
         {
             /*Joue un effet quand la balle touche quelque chose, puis détruit l'effet et la balle*/
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
             /*Détruit l'objet touché si c'est un allié (inutile de leur mettre un script point de vie puisqu'il n'en ont qu'un
              * et que leur mort n'impacte rien(si cela venait à changer il faudrait leur créer leur propre script de vie)*/
-            if (collision.gameObject.tag == "Ally") Destroy(collision.gameObject);
+            if (collision.gameObject.tag == "Ally" || collision.gameObject.tag == "Ally2") Destroy(collision.gameObject);
         }
         
     } 

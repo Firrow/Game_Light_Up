@@ -13,6 +13,7 @@ TagManager:
   - Assaut
   - bullet
   - Ally2
+  - GameManager
   layers:
   - Default
   - TransparentFX

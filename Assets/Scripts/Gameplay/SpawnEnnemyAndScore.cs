@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnEnnemyAndScore : MonoBehaviour
 {
@@ -14,12 +15,15 @@ public class SpawnEnnemyAndScore : MonoBehaviour
     public GameObject Enemy1;//Référence à l'ennemi 1
     public GameObject Enemy2;//Référence à l'ennemi 2
     private int score;//Déclare le score (mettre à jour dans le on destroy de l'ennemi) Tuer un allié baisse score ??
+    public Text scoreText;//Crée la variable de texte pour afficher le score
 
     // Start is called before the first frame update
     void Awake()
     {
-        timeE = 2.5f;
-        Debug.Log(score);
+
+        timeE = 2.5f;//Initialise la variable de délai
+        scoreText.text = "SCORE : " + score.ToString();// Initialise le texte de score
+
         //Crée une liste d'ennemi avec un répartition de base de 90% Enemy1 et 10% Enemy2
         enemies = new GameObject[] { Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy2 };
         StartCoroutine(SpawnAnEnemy());//Lance le spawn d'ennemi pour la première fois
@@ -67,9 +71,10 @@ public class SpawnEnnemyAndScore : MonoBehaviour
     public void setScore()
     {
         score += 10;//Ajoute 10 au score à chaque fois la fonction est appelée
-        Debug.Log(score);
         /*C'est un peu brut mais de toute façon le score a pas besoin d'être hyper développé*/
-        UpdateSpawnerE();//Apelle l'update Spawner quand le score est mis à jour plutôt que à charque frame NE FONCTIONNE PAS
+        scoreText.text = "SCORE : " + score.ToString();// Met à jour le texte de score
+
         
+        UpdateSpawnerE();//Apelle l'update Spawner quand le score est mis à jour plutôt que à charque frame NE FONCTIONNE PAS
     }
 }
