@@ -6,7 +6,7 @@ public class EnnemyHealth : MonoBehaviour
 {
     [SerializeField]//permet d'accéder à la variable dans l'éditeur tout en là laissant privée
     private int vie;//Crée la variable de vie de l'ennemi
-    public GameObject gManager;//Crée la référence au GameManager
+    private GameObject gManager;//Crée la référence au GameManager
     private SpawnEnnemyAndScore scoreGame;//Crée la référence pour modifier le score jr
    
 
@@ -14,6 +14,7 @@ public class EnnemyHealth : MonoBehaviour
 
     private void Awake()
     {
+        gManager = GameObject.FindGameObjectWithTag("GameManager");
         scoreGame = gManager.GetComponent<SpawnEnnemyAndScore>();
     }
     void OnCollisionEnter2D(Collision2D collision)//Quand le joueur entre en collision

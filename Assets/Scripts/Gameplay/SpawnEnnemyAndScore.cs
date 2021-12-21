@@ -19,7 +19,7 @@ public class SpawnEnnemyAndScore : MonoBehaviour
     void Awake()
     {
         timeE = 2.5f;
-        score = 0;//Réinitialise le score
+        Debug.Log(score);
         //Crée une liste d'ennemi avec un répartition de base de 90% Enemy1 et 10% Enemy2
         enemies = new GameObject[] { Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy1, Enemy2 };
         StartCoroutine(SpawnAnEnemy());//Lance le spawn d'ennemi pour la première fois
