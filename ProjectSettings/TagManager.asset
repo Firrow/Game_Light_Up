@@ -11,6 +11,8 @@ TagManager:
   - Shotgun
   - MachineGun
   - Assaut
+  - bullet
+  - Ally2
   layers:
   - Default
   - TransparentFX

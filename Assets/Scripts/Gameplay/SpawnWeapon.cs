@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SpawnWeapon : MonoBehaviour
 {
-    [SerializeField]
-    private float spawnRadius = 7, time = 10f;//Rayon d'apparition des alliés, temps entre l'apparation des alliés
+    [SerializeField]//permet d'accéder à la variable dans l'éditeur tout en là laissant privée
+    private float spawnRadius = 7;//Rayon d'apparition des alliés,
+    private float timeW;// temps entre l'apparation des alliés
 
     public GameObject[] weapons;//Déclare la liste des armes
     public GameObject player; //Référence au joueur
@@ -14,6 +15,7 @@ public class SpawnWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeW = 5f;
         StartCoroutine(SpawnAWeapon());//Lance le spawn d'armes pour la première fois
     }
 
@@ -29,7 +31,7 @@ public class SpawnWeapon : MonoBehaviour
          à la position choisie avant*/
         Instantiate(weapons[Random.Range(0, weapons.Length)], spawnPos, Quaternion.identity);
 
-        yield return new WaitForSeconds(time);//Attends un délai avant de rappeler la fonction
+        yield return new WaitForSeconds(timeW);//Attends un délai avant de rappeler la fonction
         StartCoroutine(SpawnAWeapon());//Rappel la fonction
     }
 }

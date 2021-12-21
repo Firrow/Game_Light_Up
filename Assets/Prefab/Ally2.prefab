@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6631336666753804464}
   m_Layer: 0
   m_Name: Ally2
-  m_TagString: Ally
+  m_TagString: Ally2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

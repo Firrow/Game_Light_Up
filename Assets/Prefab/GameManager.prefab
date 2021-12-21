@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7652522582554569881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7652522582554569883}
+  - component: {fileID: 7652522582554569880}
+  - component: {fileID: 7652522582554569882}
+  - component: {fileID: 7652522582554569877}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7652522582554569883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652522582554569881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5789993, y: 1.8510754, z: -9.028558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7652522582554569880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652522582554569881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b0c5d0c7f8be14b93bfc151a73a6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 7
+  player: {fileID: 7730461899944541974, guid: 5a560f4b55ba68f40ab9fb1906067053, type: 3}
+  Enemy1: {fileID: 2287813240403658676, guid: 1aa024ff262d5424a81bab95da5c8edd, type: 3}
+  Enemy2: {fileID: 375352456036749801, guid: 98a265ef7458550409fcd0e812c8e083, type: 3}
+--- !u!114 &7652522582554569882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652522582554569881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d48c16665b1dc4b831735bc168d180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 7
+  player: {fileID: 7730461899944541974, guid: 5a560f4b55ba68f40ab9fb1906067053, type: 3}
+  Ally1: {fileID: 7075173122566882092, guid: 5f42c1358474961488c02f9c4f9a743c, type: 3}
+  Ally2: {fileID: 4300338170346068939, guid: 6c862750128a3c548bbe61de68ede86a, type: 3}
+--- !u!114 &7652522582554569877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652522582554569881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b8947959af4c04bbdbfda703570862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 7
+  weapons:
+  - {fileID: 4341405905415206304, guid: bd3041efb6d631145a5fd416dd712f6e, type: 3}
+  - {fileID: 1387998231235225819, guid: ee475ebaf270a5f478b5adf90ac94fde, type: 3}
+  - {fileID: 2945704901264070709, guid: d59d0051e3e3f2f4db0da73d99895af6, type: 3}
+  - {fileID: 8121697448496160882, guid: bbf0440fa03bd6141b385c86be439c0b, type: 3}
+  player: {fileID: 0}

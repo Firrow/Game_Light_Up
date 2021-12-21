@@ -22,8 +22,9 @@ public class Bullet : MonoBehaviour
             Destroy(effect, 1f);//1f = temps avant destruction de l'effet
             Destroy(gameObject);//détruit la balle
 
-            //A enlever potentielle pour mettre le destroy dans l'objet, sinon remplir le on destroy de l'objet
-            if (collision.gameObject.tag != "Obstacle") Destroy(collision.gameObject);
+            /*Détruit l'objet touché si c'est un allié (inutile de leur mettre un script point de vie puisqu'il n'en ont qu'un
+             * et que leur mort n'impacte rien(si cela venait à changer il faudrait leur créer leur propre script de vie)*/
+            if (collision.gameObject.tag == "Ally") Destroy(collision.gameObject);
         }
         
     } 

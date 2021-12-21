@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SpawnAllies : MonoBehaviour
 {
-    [SerializeField]
-    private float spawnRadius = 7, time = 2.5f;//Rayon d'apparition des alliés, temps entre l'apparation des alliés
+    [SerializeField]//permet d'accéder à la variable dans l'éditeur tout en là laissant privée
+    private float spawnRadius = 7;//Rayon d'apparition des alliés,
+    private float timeA; //temps entre l'apparation des alliés
 
     private Health vieJoueur;//Crée la référence au script Health du joueur
     private GameObject[] allies;//Déclare la liste des alliés à spawner
@@ -16,37 +17,41 @@ public class SpawnAllies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeA = 2.5f;
         vieJoueur = player.GetComponent<Health>();
         //Crée une liste d'allié avec un répartition de base de 50% Ally1 et 50% Ally2
         allies = new GameObject[] { Ally1, Ally1, Ally1, Ally2, Ally2, Ally2 };
         StartCoroutine(SpawnAnAlly());//Lance le spawn d'allié pour la première fois
     }
 
-    private void FixedUpdate()//Pour plus d'opti au lieu de fixedUpdate créer et appeler cette fonction à chaque fois que le joueur perd/gagne un hp
+    public void UpdateSpawnerA()//Pour plus d'opti au lieu de fixedUpdate créer et appeler cette fonction à chaque fois que le joueur perd/gagne un hp
     {
-        if (vieJoueur.vie < 3)
+        if (vieJoueur.getVie() < 3)
         {
             //Modifie la liste d'allié avec un répartition de base de 50% Ally1 et 50% Ally2
             allies = new GameObject[] { Ally1, Ally1, Ally1, Ally2, Ally2, Ally2 };
-            time = 2f;//Change le délaire entre les spawns à 3s
+            timeA = 2f;//Change le délaire entre les spawns à 3s
         }
-        else if (vieJoueur.vie >= 3 && vieJoueur.vie < 5) //Valeur de score arbitraire, si le score atteint XX change les caractéristiques du spawner
+        //Valeur de vie arbitraire, si le score atteint XX change les caractéristiques du spawner
+        else if (vieJoueur.getVie() >= 3 && vieJoueur.getVie() < 5) 
         {
             //Modifie la liste d'alliés avec un répartition de 66% Ally1 et 33% Ally2
             allies = new GameObject[] { Ally1, Ally1, Ally1, Ally1, Ally2, Ally2 };
-            time = 3f;//Change le délai entre les spawns à 3s
+            timeA = 3f;//Change le délai entre les spawns à 3s
         }
-        else if (vieJoueur.vie >= 5 && vieJoueur.vie < 10) //Valeur de score arbitraire, si le score atteint XX change les caractéristiques du spawner
+        //Valeur de vie arbitraire, si le score atteint XX change les caractéristiques du spawner
+        else if (vieJoueur.getVie() >= 5 && vieJoueur.getVie() < 10)
         {
             //Modifie la liste d'alliés avec un répartition de 84% Ally1 et 16% Ally2
             allies = new GameObject[] { Ally1, Ally1, Ally1, Ally1, Ally1, Ally2 };
-            time = 4f;//Change le délai entre les spawns à 4s
+            timeA = 4f;//Change le délai entre les spawns à 4s
         }
-        else if (vieJoueur.vie > 10) //Valeur de score arbitraire, si le score atteint XX change les caractéristiques du spawner
+        //Valeur de vie arbitraire, si le score atteint XX change les caractéristiques du spawner
+        else if (vieJoueur.getVie() > 10) 
         {
             //Modifie la liste d'alliés avec un répartition de 100% Ally1 et 0% Ally2
             allies = new GameObject[] { Ally1, Ally1, Ally1, Ally1, Ally1, Ally1 };
-            time = 5f;//Change le délai entre les spawns à 5s
+            timeA = 5f;//Change le délai entre les spawns à 5s
         }
     }
 
@@ -62,7 +67,7 @@ public class SpawnAllies : MonoBehaviour
          à la position choisie avant*/
         Instantiate(allies[Random.Range(0, allies.Length)], spawnPos, Quaternion.identity);
 
-        yield return new WaitForSeconds(time);//Attends un délai avant de rappeler la fonction
+        yield return new WaitForSeconds(timeA);//Attends un délai avant de rappeler la fonction
         StartCoroutine(SpawnAnAlly());//Rappel la fonction
     }
 }
