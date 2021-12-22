@@ -60,10 +60,17 @@ public class SpawnEnnemyAndScore : MonoBehaviour
         spawnPos += Random.insideUnitCircle.normalized * spawnRadius;
 
         Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPos, Quaternion.identity);
-
         yield return new WaitForSeconds(timeE);//Attends un délai avant de rappeler la fonction
-        Debug.Log(Time.time);//A enlever quand on aura vérifier que tout fonctionne parfaitement
-        StartCoroutine(SpawnAnEnemy());//Rappel la fonction
+        //Debug.Log(Time.time);//A enlever quand on aura vérifier que tout fonctionne parfaitement
+        BufferEnemy();//Appel de la méthode Tampon
+    }
+
+    /*Méthode qui sert de tampon évitant que la coroutine SpawnAnEnnemy tourne en continue
+     permettant ainsi de changer les valeurs des variables utiliser dans la coroutine 
+    pendant le laps de temps durant lequel elle est à l'arrêt*/
+    private void  BufferEnemy()
+    {
+        StartCoroutine(SpawnAnEnemy());//Relance la coroutine
     }
 
 
