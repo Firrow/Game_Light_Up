@@ -6,8 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed;//Vitesse du joueur
+    public Animator animator;
 
-    private Rigidbody2D rb;//Crée uen variable pour stocker le corps du joueur
+    private Rigidbody2D rb;//Créé une variable pour stocker le corps du joueur
     private Camera cam;//Crée une variable pour stocker la camera
 
     Vector2 movement;//Vecteur contenant le mouvement du joueur
@@ -26,8 +27,12 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");//Récupère l'input sur l'axe X et le stock dans une variable
         movement.y = Input.GetAxisRaw("Vertical");//Récupère l'input sur l'axe Y et le stock dans une variable
 
+        //Gestion des animations
+        animator.SetFloat("SpeedH", Mathf.Abs(movement.x));
+        animator.SetFloat("SpeedV", Mathf.Abs(movement.y));
+
         /*Récupère la position de la souris, la transforme en coordonées et la stock dans une variable*/
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition); //A MODIFIER
 
         /*Limite du terrain, empeche le joueur de dépasse les coordonées spécifiées*/
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -9f, 9f), Mathf.Clamp(transform.position.y, -9f, 9f));
