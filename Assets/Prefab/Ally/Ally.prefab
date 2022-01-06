@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  spriteRenderer: {fileID: 3301170618183851866}
 --- !u!95 &2155098745918177871
 Animator:
   serializedVersion: 3
