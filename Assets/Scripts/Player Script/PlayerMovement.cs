@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
             sp1.flipX = false; //arme
             sp2.transform.localPosition = new Vector3(-Mathf.Abs(sp2.transform.localPosition.x), sp2.transform.localPosition.y, sp2.transform.localPosition.z);//firePoint
         }
-        Debug.Log(firePoint.position);
     }
 
 
