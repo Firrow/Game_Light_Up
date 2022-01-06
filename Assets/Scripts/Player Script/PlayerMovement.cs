@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed;//Vitesse du joueur
     public Animator animator;//Animation
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;//image
+    public Transform firePoint;
 
     private Rigidbody2D rb;//Créé une variable pour stocker le corps du joueur
     private Camera cam;//Crée une variable pour stocker la camera
@@ -24,23 +25,25 @@ public class PlayerMovement : MonoBehaviour
         cam = Camera.main;//Récupère la camera et la stock dans la variable créée préalablement
     }
 
+    //Permet de changer la direction du sprite du joueur, de l'arme et du firePoint
     void Flip(float _velocity)
     {
         SpriteRenderer sp1 = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        Transform sp2 = gameObject.transform.GetChild(0);
 
-        Debug.Log(movement.x);
         if (_velocity > 0.1f)
         {
-            spriteRenderer.flipX = true;
-
-            sp1.flipX = true;
+            spriteRenderer.flipX = true; //joueur
+            sp1.flipX = true; //arme
+            sp2.transform.localPosition = new Vector3(Mathf.Abs(sp2.transform.localPosition.x), sp2.transform.localPosition.y, sp2.transform.localPosition.z);//firePoint
         }
         else if(_velocity < -0.1f)
         {
-            spriteRenderer.flipX = false;
-
-            sp1.flipX = false;
+            spriteRenderer.flipX = false; //joueur
+            sp1.flipX = false; //arme
+            sp2.transform.localPosition = new Vector3(-Mathf.Abs(sp2.transform.localPosition.x), sp2.transform.localPosition.y, sp2.transform.localPosition.z);//firePoint
         }
+        Debug.Log(firePoint.position);
     }
 
 

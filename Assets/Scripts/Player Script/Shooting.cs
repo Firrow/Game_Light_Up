@@ -72,16 +72,15 @@ public class Shooting : MonoBehaviour
         //Ajouter une force de type Impulse, égale à la vitesse de la balle et dans la direction du up vector de la balle
         //au corps de la balle
 
-        //sens de la trajectoire de la balle FAUX
-        /*if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+        //sens de la trajectoire de la balle en fonction de la direction du personnage
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
         {
-            rb.AddForce(firePoint.up * bulletSpeed * 1, ForceMode2D.Impulse);
+            rb.AddForce(firePoint.up * bulletSpeed * -1, ForceMode2D.Impulse);
         }
         else if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
-            rb.AddForce(firePoint.up * bulletSpeed * -1, ForceMode2D.Impulse);
-        }*/
-        rb.AddForce(firePoint.up * bulletSpeed * 1, ForceMode2D.Impulse);
+            rb.AddForce(firePoint.up * bulletSpeed * 1, ForceMode2D.Impulse);
+        }
     }
 
     void ShootWP1()//Fonction de tir de l'arme de base
