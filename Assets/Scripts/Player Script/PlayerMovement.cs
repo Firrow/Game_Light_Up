@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
 
-            //sp1.flipX = true;
+            sp1.flipX = true;
         }
         else if(_velocity < -0.1f)
         {
             spriteRenderer.flipX = false;
 
-            //sp1.flipX = false;
+            sp1.flipX = false;
         }
     }
 
