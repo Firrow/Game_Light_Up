@@ -16,7 +16,7 @@ public class DeplacementAI : MonoBehaviour
     }
 
     //Change direction du sprite de l'ennemi
-    void FlipEnnemy()
+    void FlipAI()
     {
         if (playerPos.position.x - transform.position.x < 0)
         {
@@ -36,6 +36,6 @@ public class DeplacementAI : MonoBehaviour
             //L'IA se déplace en direction du joueur
             transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
 
-        FlipEnnemy();
+        FlipAI();
     }
 }
